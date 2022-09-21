@@ -15,16 +15,17 @@ body {
 
 #mach-5 {
   width: 20rem;
+  transition: transform 0.25s;
 }
 
 .down {
   transform: rotate(90deg);
 }
 
-.up {
-  transform: rotate(-90deg);
-}
-
 .left {
   transform: rotate(180deg);
+}
+
+.up {
+  transform: rotate(-90deg);
 }
