@@ -1,9 +1,10 @@
 var $mach5 = document.querySelector('#mach-5');
 var countSide = 1;
 var intervalId = null;
+var isMoving = false;
 
 window.addEventListener('keydown', turnCar);
-window.addEventListener('keydown', startCar);
+window.addEventListener('keydown', moveCar);
 
 function turnCar(event) {
   if (event.key === 'd' || event.key === 'ArrowRight') {
@@ -17,9 +18,13 @@ function turnCar(event) {
   }
 }
 
-function startCar(event) {
-  if (event.key === ' ') {
+function moveCar(event) {
+  if (event.key === ' ' && isMoving === false) {
+    isMoving = true;
     intervalId = setInterval(moveRight, 16);
+  } else if (event.key === ' ' && isMoving) {
+    isMoving = false;
+    clearInterval(intervalId);
   }
 }
 
@@ -27,5 +32,3 @@ function moveRight(event) {
   $mach5.style.left = (6 * countSide) + 'px';
   countSide++;
 }
-
-clearInterval(intervalId);
