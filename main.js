@@ -32,7 +32,7 @@ function moveRight(event) {
 }
 
 function stopCar(event) {
-  if (isMoving) {
+  if (event.key === 'Shift' && isMoving) {
     clearInterval(intervalId);
   }
 }
