@@ -44,3 +44,31 @@ function moveCar(event) {
     countVert--;
   }
 }
+
+// Code for select vehicle modal
+
+var $left = document.querySelector('.left-arrow');
+// var $right = document.querySelector('.right-arrow');
+// var $buttons = document.querySelector('.buttons');
+var $icons = document.querySelectorAll('i');
+var $images = document.querySelectorAll('.row > img');
+var imgPosition = 0;
+// var intervalModalId = null;
+
+$left.addEventListener('click', left);
+
+function left(event) {
+  imgPosition--;
+
+  if (imgPosition < 0) {
+    imgPosition = 4;
+  }
+  for (var i = 0; i < $images.length; i++) {
+    $images[i].className = 'hidden';
+    $icons[i].classList.remove = 'fa-solid';
+    $icons[i].classList.add = 'fa-regular';
+  }
+  $images[imgPosition].className = '';
+  $icons[imgPosition].classList.remove = 'fa-regular';
+  $icons[imgPosition].classList.add = 'fa-solid';
+}
