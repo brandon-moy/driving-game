@@ -10,8 +10,21 @@ body {
   background-color: green;
   width: 100%;
   height: 100vh;
+  padding: 4rem;
 }
 
-.mach-5 {
+#mach-5 {
   width: 20rem;
+}
+
+.down {
+  transform: rotate(90deg);
+}
+
+.up {
+  transform: rotate(-90deg);
+}
+
+.left {
+  transform: rotate(180deg);
 }
