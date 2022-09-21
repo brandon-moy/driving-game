@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  background-color: green;
+  width: 100%;
+  height: 100vh;
+}
+
+.mach-5 {
+  width: 20rem;
+}
