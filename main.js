@@ -54,6 +54,7 @@ var $icons = $buttons.querySelectorAll('i');
 var $images = document.querySelectorAll('.row > img');
 var $select = document.querySelector('.select');
 var $modal = document.querySelector('.modal-container');
+var $showModal = document.querySelector('.show-modal');
 var imgPosition = 0;
 var intervalModalId = null;
 
@@ -61,6 +62,7 @@ $left.addEventListener('click', left);
 $right.addEventListener('click', right);
 $buttons.addEventListener('click', button);
 $select.addEventListener('click', chooseCar);
+$showModal.addEventListener('click', showModal);
 
 function left(event) {
   clearInterval(intervalModalId);
@@ -148,7 +150,17 @@ function chooseCar(event) {
   $vehicle.setAttribute('src', car);
   $vehicle.className = '';
   $modal.className = 'hidden';
+  $showModal.classList.remove('hidden');
 
   clearInterval(intervalModalId);
   intervalModalId = null;
+}
+
+function showModal(event) {
+  $showModal.classList.add('hidden');
+
+  intervalModalId = setInterval(cycle, 3000);
+
+  $vehicle.className = 'hidden';
+  $modal.className = 'modal-container';
 }
