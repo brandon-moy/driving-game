@@ -48,16 +48,24 @@ function moveCar(event) {
 // Code for select vehicle modal
 
 var $left = document.querySelector('.left-arrow');
-// var $right = document.querySelector('.right-arrow');
-// var $buttons = document.querySelector('.buttons');
-var $icons = document.querySelectorAll('i');
+var $right = document.querySelector('.right-arrow');
+var $buttons = document.querySelector('.buttons');
+var $icons = $buttons.querySelectorAll('i');
 var $images = document.querySelectorAll('.row > img');
+var $select = document.querySelector('.select');
+var $modal = document.querySelector('.modal-container');
 var imgPosition = 0;
-// var intervalModalId = null;
+var intervalModalId = null;
 
 $left.addEventListener('click', left);
+$right.addEventListener('click', right);
+$buttons.addEventListener('click', button);
+$select.addEventListener('click', chooseCar);
 
 function left(event) {
+  clearInterval(intervalModalId);
+  intervalModalId = null;
+
   imgPosition--;
 
   if (imgPosition < 0) {
@@ -65,10 +73,82 @@ function left(event) {
   }
   for (var i = 0; i < $images.length; i++) {
     $images[i].className = 'hidden';
-    $icons[i].classList.remove = 'fa-solid';
-    $icons[i].classList.add = 'fa-regular';
+    $icons[i].classList.remove('fa-solid');
+    $icons[i].classList.add('fa-regular');
   }
   $images[imgPosition].className = '';
-  $icons[imgPosition].classList.remove = 'fa-regular';
-  $icons[imgPosition].classList.add = 'fa-solid';
+  $icons[imgPosition].classList.remove('fa-regular');
+  $icons[imgPosition].classList.add('fa-solid');
+
+  intervalModalId = setInterval(cycle, 3000);
+}
+
+function right(event) {
+  clearInterval(intervalModalId);
+  intervalModalId = null;
+
+  imgPosition++;
+
+  if (imgPosition > 4) {
+    imgPosition = 0;
+  }
+  for (var j = 0; j < $images.length; j++) {
+    $images[j].className = 'hidden';
+    $icons[j].classList.remove('fa-solid');
+    $icons[j].classList.add('fa-regular');
+  }
+  $images[imgPosition].className = '';
+  $icons[imgPosition].classList.remove('fa-regular');
+  $icons[imgPosition].classList.add('fa-solid');
+
+  intervalModalId = setInterval(cycle, 3000);
+}
+
+function cycle(event) {
+  imgPosition++;
+
+  if (imgPosition > 4) {
+    imgPosition = 0;
+  }
+  for (var j = 0; j < $images.length; j++) {
+    $images[j].className = 'hidden';
+    $icons[j].classList.remove('fa-solid');
+    $icons[j].classList.add('fa-regular');
+  }
+  $images[imgPosition].className = '';
+  $icons[imgPosition].classList.remove('fa-regular');
+  $icons[imgPosition].classList.add('fa-solid');
+}
+
+function button(event) {
+  clearInterval(intervalModalId);
+  intervalModalId = null;
+  if (event.target.tagName === 'I') {
+    for (var i = 0; i < $icons.length; i++) {
+      if (event.target.className === $icons[i].className) {
+        imgPosition = i;
+        $images[i].className = '';
+        $icons[i].classList.remove('fa-regular');
+        $icons[i].classList.add('fa-solid');
+      } else {
+        $images[i].className = 'hidden';
+        $icons[i].classList.remove('fa-solid');
+        $icons[i].classList.add('fa-regular');
+      }
+    }
+  }
+  intervalModalId = setInterval(cycle, 3000);
+}
+
+intervalModalId = setInterval(cycle, 3000);
+
+function chooseCar(event) {
+  var car = $images[imgPosition].getAttribute('src');
+
+  $vehicle.setAttribute('src', car);
+  $vehicle.className = '';
+  $modal.className = 'hidden';
+
+  clearInterval(intervalModalId);
+  intervalModalId = null;
 }
