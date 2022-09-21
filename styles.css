@@ -17,6 +17,7 @@ body {
   transition: transform 0.25s;
   position: absolute;
   top: 4rem;
+  left: 0;
 }
 
 .down {

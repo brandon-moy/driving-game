@@ -1,6 +1,9 @@
 var $mach5 = document.querySelector('#mach-5');
+var countSide = 1;
+var intervalId = null;
 
 window.addEventListener('keydown', turnCar);
+window.addEventListener('keydown', startCar);
 
 function turnCar(event) {
   if (event.key === 'd' || event.key === 'ArrowRight') {
@@ -13,3 +16,16 @@ function turnCar(event) {
     $mach5.className = 'up';
   }
 }
+
+function startCar(event) {
+  if (event.key === ' ') {
+    intervalId = setInterval(moveRight, 16);
+  }
+}
+
+function moveRight(event) {
+  $mach5.style.left = (6 * countSide) + 'px';
+  countSide++;
+}
+
+clearInterval(intervalId);
