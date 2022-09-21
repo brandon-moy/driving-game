@@ -6,10 +6,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Driving Game</title>
   <link href="styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
+  <div class="modal-container">
+    <div class=" modal-background">
+      <h2 class="select-header">Select your vehicle!</h2>
+
+      <div class="row">
+        <i class="fa-solid fa-chevron-left left-arrow"></i>
+        <img src="images/pinky.png">
+        <img src="images/4yo-removebg-preview.png" class="hidden">
+        <img src="images/daisy-removebg-preview.png" class="hidden">
+        <img src="images/fern-removebg-preview.png" class="hidden">
+        <img src="images/blue_4-removebg-preview.png" class="hidden">
+        <i class="fa-solid fa-chevron-right right-arrow"></i>
+      </div>
+      <div class="car-names">
+        <h3>Pinky</h3>
+        <h3 class="hidden">Crayon Rider</h3>
+        <h3 class="hidden">Daisy</h3>
+        <h3 class="hidden">Fred the Fern</h3>
+        <h3 class="hidden">Picasso</h3>
+      </div>
+      <div class="buttons row">
+        <i class="fa-solid fa-circle circle first"></i>
+        <i class="fa-regular fa-circle circle second"></i>
+        <i class="fa-regular fa-circle circle third"></i>
+        <i class="fa-regular fa-circle circle fourth"></i>
+        <i class="fa-regular fa-circle circle fifth"></i>
+      </div>
+      <button type="button" class="select">SELECT</button>
+    </div>
+  </div>
   <div class="container">
-    <img src="images/mach-5 no bg.png" id="mach-5">
+    <img src="images/blue_4-removebg-preview.png" class="hidden" id="vehicle">
+    <button type="button" class="show-modal hidden">CHANGE VEHICLE</button>
   </div>
   <script src="main.js"></script>
 </body>
