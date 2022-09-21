@@ -55,6 +55,7 @@ var $images = document.querySelectorAll('.row > img');
 var $select = document.querySelector('.select');
 var $modal = document.querySelector('.modal-container');
 var $showModal = document.querySelector('.show-modal');
+var $carNames = document.querySelectorAll('.car-names > h3');
 var imgPosition = 0;
 var intervalModalId = null;
 
@@ -77,10 +78,12 @@ function left(event) {
     $images[i].className = 'hidden';
     $icons[i].classList.remove('fa-solid');
     $icons[i].classList.add('fa-regular');
+    $carNames[i].className = 'hidden';
   }
   $images[imgPosition].className = '';
   $icons[imgPosition].classList.remove('fa-regular');
   $icons[imgPosition].classList.add('fa-solid');
+  $carNames[imgPosition].className = '';
 
   intervalModalId = setInterval(cycle, 3000);
 }
@@ -98,10 +101,12 @@ function right(event) {
     $images[j].className = 'hidden';
     $icons[j].classList.remove('fa-solid');
     $icons[j].classList.add('fa-regular');
+    $carNames[j].className = 'hidden';
   }
   $images[imgPosition].className = '';
   $icons[imgPosition].classList.remove('fa-regular');
   $icons[imgPosition].classList.add('fa-solid');
+  $carNames[imgPosition].className = '';
 
   intervalModalId = setInterval(cycle, 3000);
 }
@@ -112,14 +117,16 @@ function cycle(event) {
   if (imgPosition > 4) {
     imgPosition = 0;
   }
-  for (var j = 0; j < $images.length; j++) {
-    $images[j].className = 'hidden';
-    $icons[j].classList.remove('fa-solid');
-    $icons[j].classList.add('fa-regular');
+  for (var k = 0; k < $images.length; k++) {
+    $images[k].className = 'hidden';
+    $icons[k].classList.remove('fa-solid');
+    $icons[k].classList.add('fa-regular');
+    $carNames[k].className = 'hidden';
   }
   $images[imgPosition].className = '';
   $icons[imgPosition].classList.remove('fa-regular');
   $icons[imgPosition].classList.add('fa-solid');
+  $carNames[imgPosition].className = '';
 }
 
 function button(event) {
@@ -132,10 +139,12 @@ function button(event) {
         $images[i].className = '';
         $icons[i].classList.remove('fa-regular');
         $icons[i].classList.add('fa-solid');
+        $carNames[i].className = '';
       } else {
         $images[i].className = 'hidden';
         $icons[i].classList.remove('fa-solid');
         $icons[i].classList.add('fa-regular');
+        $carNames[i].className = 'hidden';
       }
     }
   }

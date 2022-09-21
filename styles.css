@@ -4,6 +4,7 @@
 
 body {
   margin: 0;
+  font-family: sans-serif;
 }
 
 .hidden {
@@ -45,9 +46,9 @@ body {
 
 .modal-background {
   background-color: white;
-  width: 80%;
-  height: 82vh;
-  margin: 0 auto;
+  width: 60%;
+  height: 80vh;
+  margin: 2rem auto;
   text-align: center;
   border-radius: 0.25rem;
 }
@@ -63,7 +64,7 @@ body {
 }
 
 .row > img {
-  width: 20rem;
+  width: 40rem;
   height: 50vh;
   object-fit: contain;
 }
@@ -83,10 +84,15 @@ body {
   width: 24px;
 }
 
+.select {
+  font-family: sans-serif;
+}
+
 .show-modal {
   position: fixed;
   bottom: 5px;
   left: 5px;
   border: none;
   border-radius: 0.25rem;
+  font-family: sans-serif;
 }
